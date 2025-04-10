@@ -59,7 +59,9 @@ public class JwtAuthinticationFilter extends OncePerRequestFilter {
                 e.printStackTrace();
 
             }
-        }else {
+
+        }else
+        {
             logger.info("Invalid header value !! ");
         }
         if (username != null && SecurityContextHolder.getContext().getAuthentication() == null){

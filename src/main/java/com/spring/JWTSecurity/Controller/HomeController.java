@@ -3,6 +3,7 @@ package com.spring.JWTSecurity.Controller;
 import com.spring.JWTSecurity.Model.User;
 import com.spring.JWTSecurity.Service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -19,6 +20,7 @@ public class HomeController {
 
 
     @GetMapping("/user")
+    @PreAuthorize("hasRole(\"ADMIN\")")
     public List<User> getUser(){
 
         System.out.println("Getting Users ");
